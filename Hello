@@ -1,0 +1,26 @@
+$user = [Environment]::UserName
+$date = Get-Date -f "dd.MM.yyyy"
+$data = Get-WmiObject Win32_OperatingSystem
+$share = Get-WmiObject Win32_Share
+
+Clear-Host
+Write-Host("`n`n")
+Write-Host("Hello " + $user + ", we are the " + $date + ". Your computer is working under " + $data.Caption + " " + $data.OSArchitecture.ToUpper() + ".")
+Write-Host("`n----------`n")
+Write-Host("Your OS execute " + $data.NumberOfProcesses + " processes at the moment !")
+
+if (($data.FreePhysicalMemory / 1024) -gt 2048)
+{
+	Write-Host("Your computer have more than 2048 Mo free memory.")
+}
+else
+{
+	Write-Host("Maybe you should buy a bunch a RAM ?")
+}
+Write-Host("`n---------`n")
+Write-Host("Here are all of your share directory :" )
+Write-Host($share + "`n`n")
+
+Write-Host -NoNewLine 'Press a key to continue ...';
+$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown'); #Wait a key before exit
+Write-Host("`n`n")
