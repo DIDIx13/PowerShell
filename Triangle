@@ -1,0 +1,4 @@
+Clear-Host
+for ($i=1; $i -le 7; $i+=2){
+  write-host("*"*$i)
+}
