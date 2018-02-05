@@ -1,0 +1,1 @@
+Send-MailMessage -To "Darwin <darwin.ameli@me.ch>" -From "Myself<darwin.ameli@me.ch>" -Subject "Linux > Windows" -Body "body" -SmtpServer "smtp.me.ch" -Credential "root ofc"
